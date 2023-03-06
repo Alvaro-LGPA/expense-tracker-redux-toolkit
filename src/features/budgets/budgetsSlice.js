@@ -3,6 +3,25 @@ import { createSlice } from "@reduxjs/toolkit";
 export const CATEGORIES = ['housing', 'food', 'transportation', 'utilities', 'clothing', 'healthcare', 'personal', 'education', 'entertainment'];
 const initialState = CATEGORIES.map(category => ({ category: category, amount: 0 }))
 
+const initialSlice = createSlice({
+  name: 'budgets',
+  initialState: initialState,
+  reducers: {
+    editBudget: (state, action) => {
+      const { category, amount } = action.payload;
+      const newBudgets = state.map(budget => {
+        if(budget.category === category){
+          return action.payload;
+        }
+        return budget
+      });
+      return newBudgets;
+    }
+  }
+  })
+    
+
+
 export const editBudget = (budget) => {
   return {
     type: 'budgets/editBudget',
