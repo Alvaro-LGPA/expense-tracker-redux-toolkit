@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const CATEGORIES = ['housing', 'food', 'transportation', 'utilities', 'clothing', 'healthcare', 'personal', 'education', 'entertainment'];
 const initialState = CATEGORIES.map(category => ({ category: category, amount: 0 }))
 
-const budgetSlice = createSlice({
+const budgetsSlice = createSlice({
   name: 'budgets',
   initialState: initialState,
   reducers: {
@@ -29,6 +29,7 @@ const budgetSlice = createSlice({
   }
 } */
 
+/*
 const budgetsReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'budgets/editBudget':
@@ -43,8 +44,8 @@ const budgetsReducer = (state = initialState, action) => {
       return state;
   }
 }
-
+*/
 export const selectBudgets = (state) => state.budgets;
-export default budgetsReducer;
+export default budgetsSlice;
 
-export const { editBudget } = budgetSlice.actions;
+export const { editBudget } = budgetsSlice.actions;
