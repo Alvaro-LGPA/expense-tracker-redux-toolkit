@@ -3,6 +3,15 @@ import { createSlice } from '@reduxjs/toolkit'
 export const CATEGORIES = ['housing', 'food', 'transportation', 'utilities', 'clothing', 'healthcare', 'personal', 'education', 'entertainment'];
 const initialState = Object.fromEntries(CATEGORIES.map(category => [category, []]))
 
+
+const transactionsSlice = createSlice({
+    name: 'transactions',
+    initialState: initialState,
+    reducers: {
+        
+    }
+})
+
 export const addTransaction = (transaction) => {
   return {
     type: 'transactions/addTransaction',
